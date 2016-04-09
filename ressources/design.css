@@ -1,0 +1,11 @@
+nav#mainMenu ul
+{
+	list-style-type: none;
+	width: 80%;
+	display: table;
+}
+
+nav#mainMenu ul li
+{
+	display: table-cell;
+}

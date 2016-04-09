@@ -1,11 +1,12 @@
 <?php
 if (isset($_POST['login']))
 {
-	$userlist = krnl_UserLoads();
-	if (krnl_UserRegister($_POST['login'], $_POST['mail'], $_POST['passwd'], $userlist) === true)
+	$db = krnl_MysqlConnect();
+	if (krnl_UserAdd($db, $_POST['login'], $_POST['mail'], $_POST['passwd']) === true)
 		echo "Registration ok\n";
 	else
 		echo "Registration failure\n";
+	mysqli_close($db);
 }
 ?>
 

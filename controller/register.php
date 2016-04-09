@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['login']))
 {
-	if (user_register($_POST['login'], $_POST['mail'], $_POST['passwd']) === true)
+	if (krnl_UserRegister($_POST['login'], $_POST['mail'], $_POST['passwd']) === true)
 		echo "Registration ok\n";
 	else
 		echo "Registration failure\n";

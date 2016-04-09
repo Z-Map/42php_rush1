@@ -20,5 +20,15 @@ function getpage()
 	return ($pages[1]);
 }
 
+$html_content = krnl_html_content_init();
+
+ob_start();
+
+include 'controller/'.getpage();
+
+$html_content['plain_content'] = ob_get_contents();
+
+ob_end_clean();
+
 include 'struct/frame.php';
 ?>

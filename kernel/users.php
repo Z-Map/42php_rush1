@@ -47,7 +47,14 @@ function	krnl_UserAdd(&$userlist, $login, $mail, $passwd)
 //ecrit la liste des utilisateur dans le fichier de bdd
 function 	krnl_UserFlushDatabase(&$userlist)
 {
-	file_put_contents(krnl_UserDbPath(), serialize($userlist));
+	$db = krnl_UserDbPath();
+	if (file_exists($db))
+		unlink($db);
+	$fd = fopen($db, 'cw');
+	flock($fd, LOCK_EX);
+	fwrite($fd, serialize($userlist));
+	flock($fd, LOCK_UN);
+	fclose($fd);
 }
 
 //ajoute l utilisateur $user a la base de donne

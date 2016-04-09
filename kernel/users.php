@@ -44,6 +44,12 @@ function	krnl_UserAdd(&$userlist, $login, $mail, $passwd)
 	return (true);
 }
 
+//ecrit la liste des utilisateur dans le fichier de bdd
+function 	krnl_UserFlushDatabase(&$userlist)
+{
+	file_put_contents(krnl_UserDbPath(), serialize($userlist));
+}
+
 //ajoute l utilisateur $user a la base de donne
 function	krnl_UserRegister($login, $mail, $passwd, &$userlist)
 {
@@ -51,7 +57,7 @@ function	krnl_UserRegister($login, $mail, $passwd, &$userlist)
 		return (false);
 	if (krnl_UserAdd($userlist, $login, $mail, $passwd) === true)
 	{
-		file_put_contents(krnl_UserDbPath(), serialize($userlist));
+		krnl_UserFlushDatabase($userlist);
 		return (true);
 	}
 	return (false);

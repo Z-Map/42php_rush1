@@ -9,7 +9,7 @@ if (isset($_POST['login']))
 	mysqli_close($db);
 }
 ?>
-
+<h1>User account registration</h1>
 <form action='./index.php' method='POST'>
 	<input type='hidden' name='page' value='6' />
 	<table>

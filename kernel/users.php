@@ -64,7 +64,7 @@ function	krnl_UserDel($login, &$userlist)
 	$n = count($userlist);
 	while ($n--)
 	{
-		if ($userlist[$n] === $login)
+		if ($userlist[$n]['login'] === $login)
 		{
 			unset($userlist[$n]);
 			array_splice($userlist);

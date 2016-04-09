@@ -66,7 +66,7 @@ function	krnl_UserDel($login, &$userlist)
 	{
 		if ($userlist[$n] === $login)
 		{
-			unset($userlist[$login]);
+			unset($userlist[$n]);
 			array_splice($userlist);
 			return (true);
 		}

@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+$html_head = array();
+$html_config = array();
+$html_content = array();
+
 require_once("kernel/core.php");
 
 function getpage()

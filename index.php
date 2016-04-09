@@ -6,7 +6,7 @@ function getpage()
 {
 	if (isset($_POST['page']))
 		$pid = intval($_POST['page']);
-	else if (isset(_GET['page']))
+	else if (isset($_GET['page']))
 		$pid = intval($_GET['page'])
 	$pages = array(1 => "home.php",
 		2 => "login.php",

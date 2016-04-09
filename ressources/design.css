@@ -1,8 +1,17 @@
+nav#mainMenu
+{
+	width: 20%;
+	margin: 0px;
+	box-sizing: border-box;
+}
+
 nav#mainMenu ul
 {
 	list-style-type: none;
 	width: 80%;
 	display: table;
+	margin: 0px;
+	box-sizing: border-box;
 }
 
 nav#mainMenu ul li

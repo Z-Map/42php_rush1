@@ -2,6 +2,8 @@
 //renvoi true si $login est dans la liste des utilisateurs, sinon false
 function	user_check(&$userlist, $login)
 {
+	if ($userlist === null)
+		return (false);
 	foreach ($userlist as $user)
 		if ($user['login'] === $login)
 			return (true);
@@ -24,8 +26,10 @@ function	user_add(&$userlist, $login, $mail, $passwd)
 //ajoute l utilisateur $user a la base de donne
 function	user_register($login, $mail, $passwd)
 {
-	$private_dir = "./database/users.db";
-	$pwf = "$private_dir/passwd";
+	if ((!strlen($login)) || (!strlen($passwd)) || (!strlen($mail)))
+		return (false);
+	$private_dir = "./database/";
+	$pwf = "$private_dir/users.db";
 	if (!file_exists($private_dir))
 		mkdir($private_dir);
 	if (!file_exists($pwf))
@@ -39,6 +43,14 @@ function	user_register($login, $mail, $passwd)
 	}
 	return (false);
 }
+
+if (isset($_POST['login']))
+{
+	if (user_register($_POST['login'], $_POST['mail'], $_POST['passwd']) === true)
+		echo "Registration ok\n";
+	else
+		echo "Registration failure\n";
+}
 ?>
 
 <form action='./index.php' method='POST'>
@@ -49,13 +61,16 @@ function	user_register($login, $mail, $passwd)
 			<td><input name='login' /></td>
 		</tr>
 		<tr>
-			<td>Email</tr>
-			<td><input name='mail' /></tr>
+			<td>Email</td>
+			<td><input name='mail' /></td>
 		</tr>
 		<tr>
-			<td>Mot de passe</tr>
-			<td><input name='passwd' type='password' /></tr>
+			<td>Mot de passe</td>
+			<td><input name='passwd' type='password' /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type='submit' value='Envoyer' /></td>
 		</tr>
 	</table>
-	<input type='submit' value='Envoyer' />
 </form>

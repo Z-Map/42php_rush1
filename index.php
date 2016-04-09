@@ -1,10 +1,11 @@
 <?php
 session_start();
+require_once("kernel/core.php");
 
 function getpage()
 {
 	if (isset($_POST['page']))
-	$pid = intval($_POST['page']);
+		$pid = intval($_POST['page']);
 	else if (isset(_GET['page']))
 		$pid = intval($_GET['page'])
 	$pages = array(1 => "home.php",
@@ -19,8 +20,5 @@ function getpage()
 	return ($pages[1]);
 }
 
-require_once("kernel/core.php");
-
 include 'struct/frame.php';
-
 ?>

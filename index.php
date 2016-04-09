@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 function getpage()
 {
 	if (isset($_POST['page']))
@@ -17,4 +18,9 @@ function getpage()
 		return ($pages[$pid]);
 	return ($pages[1]);
 }
+
+require_once("kernel/core.php");
+
+include 'struct/frame.php';
+
 ?>

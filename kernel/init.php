@@ -1,6 +1,6 @@
 <?php
 
-function krnl_html_head_init($title = 'A Web Site')
+function krnl_HtmlHeadInit($title = 'A Web Site')
 {
 	return (array(
 		'title' => $title,
@@ -9,14 +9,14 @@ function krnl_html_head_init($title = 'A Web Site')
 	));
 }
 
-function krnl_html_config_init()
+function krnl_HtmlConfigInit()
 {
 	return (array(
 		'context' => '',
 	));
 }
 
-function krnl_html_content_init()
+function krnl_HtmlContentInit()
 {
 	return (array(
 		'plain_content' => "",

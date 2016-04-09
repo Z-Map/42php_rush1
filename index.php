@@ -20,9 +20,9 @@ function getpage()
 	return ($pages[1]);
 }
 
-$html_head = krnl_html_head_init();
-$html_config = krnl_html_config_init();
-$html_content = krnl_html_content_init();
+$html_head = krnl_HtmlHeadInit();
+$html_config = krnl_HtmlConfigInit();
+$html_content = krnl_HtmlContentInit();
 
 ob_start();
 

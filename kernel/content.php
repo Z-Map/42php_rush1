@@ -1,6 +1,6 @@
 <?php
 
-function krnl_get_formated_content( $htmlcnt )
+function krnl_GetFormatedContent( $htmlcnt, $cfg, $headcfg )
 {
 	return ($htmlcnt['plain_content']);
 }

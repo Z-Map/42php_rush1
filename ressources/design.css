@@ -1,5 +1,6 @@
-nav#mainMenu
+nav#mainMenu a
 {
+	display: inline-block;
 	width: 20%;
 	margin: 0px;
 	box-sizing: border-box;
@@ -8,7 +9,7 @@ nav#mainMenu
 nav#mainMenu ul
 {
 	list-style-type: none;
-	width: 80%;
+	width: 100%;
 	display: table;
 	margin: 0px;
 	box-sizing: border-box;

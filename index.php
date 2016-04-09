@@ -19,6 +19,7 @@ function getpage()
 		4 => "cart.php",
 		5 => "profile.php",
 		6 => "register.php",
+		8 => "category.php",
 		7 => "admin.php");
 	if (isset($pages[$pid]))
 		return ($pages[$pid]);

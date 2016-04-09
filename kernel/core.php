@@ -1,30 +1,4 @@
 <?php
 
-function krnl_html_head_init($title = 'A Web Site')
-{
-	return (array(
-		'title' => $title,
-		'charset' => 'utf-8',
-
-	));
-}
-
-function krnl_html_config_init()
-{
-	return (array(
-		'context' => '',
-	));
-}
-
-function krnl_html_content_init()
-{
-	return (array(
-		'plain_content' => "",
-		''
-	));
-}
-
-function krnl_get_formated_content( $htmlcnt )
-{
-	return ($htmlcnt['plain_content']);
-}
+require_once 'init.php';
+require_once 'content.php';

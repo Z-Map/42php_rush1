@@ -56,4 +56,21 @@ function	krnl_UserRegister($login, $mail, $passwd, &$userlist)
 	}
 	return (false);
 }
+
+//supprime $login de la liste des utilisateurs,
+//renvoi true si l utilisateur a ete delete, sinon false
+function	krnl_UserDel($login, &$userlist)
+{
+	$n = count($userlist);
+	while ($n--)
+	{
+		if ($userlist[$n] === $login)
+		{
+			unset($userlist[$login]);
+			array_splice($userlist);
+			return (true);
+		}
+	}
+	return (false);
+}
 ?>

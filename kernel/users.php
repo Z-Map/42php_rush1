@@ -35,4 +35,19 @@ function	krnl_UserDel(&$db, $user_id)
 	$req = "DELETE FROM `rush00`.`users` WHERE `users`.`id` = $user_id LIMIT 1";
 	return (@mysqli_query($db, $req));
 }
+
+function	krnl_UserAuth(&$db, $login, $passwd)
+{
+	$login = htmlentities($login);
+	$ret = @mysqli_query($db, "SELECT * FROM `users` WHERE `login` = '$login' LIMIT 1;");
+	$data = mysqli_fetch_assoc($ret);
+	if (!isset($data['id']))
+		return (false);
+	if (hash("whirlpool", $passwd) === $data['passwd'])
+	{
+		$_SESSION['user'] = $data;
+		return (true);
+	}
+	return (false);
+}
 ?>

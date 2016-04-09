@@ -14,6 +14,8 @@ function	krnl_UserCheck(&$db, $login)
 //retourne true si l utilisateur a bien ete ajoute, sinon false
 function	krnl_UserAdd(&$db, $login, $mail, $passwd)
 {
+	if ((!strlen($passwd)) || (!strlen($login)) || (!strlen($mail)))
+		return (false);
 	if (krnl_UserCheck($db, $login) !== false)
 		return (false);
 	$login = htmlentities($login);

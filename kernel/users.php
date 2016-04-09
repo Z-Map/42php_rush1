@@ -32,7 +32,7 @@ function	krnl_UserDel(&$db, $user_id)
 	$user_id = intval($user_id);
 	if (!$user_id)
 		return (false);
-	$req = "DELETE FROM `rush00`.`users` WHERE `users`.`id` = $user_id";
+	$req = "DELETE FROM `rush00`.`users` WHERE `users`.`id` = $user_id LIMIT 1";
 	return (@mysqli_query($db, $req));
 }
 ?>

@@ -15,6 +15,8 @@ if (empty($html_head))
 <html>
 	<head charset="<?php echo $html_head['charset']; ?>" >
 		<title><?php echo $html_head['title']; ?></title>
+		<link rel="stylesheet" type="text/css" href="ressources/design.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	</head>
 	<body>
 		<?php if (!@include $html_config['context'].'header.php')  include 'header.php'; ?>

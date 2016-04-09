@@ -1,4 +1,4 @@
-<<?php
+<?php
 
 if (empty($html_head))
 	$html_head = html_head_init();

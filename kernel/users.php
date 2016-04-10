@@ -16,6 +16,7 @@ function	krnl_UserAdd(&$db, $login, $mail, $passwd)
 {
 	if ((!strlen($passwd)) || (!strlen($login)) || (!strlen($mail)))
 		return (false);
+	$login = htmlentities($login);
 	if (krnl_UserCheck($db, $login) !== false)
 		return (false);
 	$login = mysqli_real_escape_string($db, $login);
@@ -52,5 +53,25 @@ function	krnl_UserAuth(&$db, $login, $passwd)
 		return (true);
 	}
 	return (false);
+}
+
+// Renvoi la liste des users
+function	krnl_UserList(&$db)
+{
+	$req = "SELECT * FROM `users`;";
+	$ret = @mysqli_query($db, $req);
+	if (!$ret)
+		return (null);
+	$users = [];
+	while (($data = mysqli_fetch_assoc($ret)))
+		$users[] = $data;
+	return ($users);
+}
+
+function	krnl_UserIsAdmin()
+{
+	if (!isset($_SESSION['user']))
+		return (false);
+	return ($_SESSION['user']['login'] === 'admin');
 }
 ?>

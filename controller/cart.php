@@ -10,6 +10,8 @@ if (isset($_SESSION['cart']))
 		$articles[] = $item;
 	}
 	mysqli_close($db);
+	if (!count($articles))
+		header("Location: ./index.php?page=13");
 }
 ?>
 

@@ -24,7 +24,8 @@ function getpage()
 		9 => "logout.php",
 		10 => "login.php",
 		11 => "cart.php",
-		12 => "addcart.php");
+		12 => "addcart.php",
+		13 => "emptycart.php");
 	if (isset($pages[$pid]))
 		return ($pages[$pid]);
 	return ($pages[1]);

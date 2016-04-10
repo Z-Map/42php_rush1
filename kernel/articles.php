@@ -45,9 +45,37 @@ function	krnl_ArticleClearCart()
 		unset($_SESSION['cart']);
 }
 
-function	krnl_UpdateArticle(&$db, $article)
+function	krnl_UpdateArticle(&$db, $data)
 {
-	
+	$id = intval($data["id"]);
+	$category = mysqli_real_escape_string($db, $data["category"]);
+	$title = mysqli_real_escape_string($db, $data["title"]);
+	$price = mysqli_real_escape_string($db, $data["price"]);
+	$description = mysqli_real_escape_string($db, $data["description"]);
+	$img = mysqli_real_escape_string($db, $data["img"]);
+	$req = "UPDATE articles SET category='$category',
+		title='$title', price='$price', img='$img', description='$description'
+		WHERE `id` = $id;";
+	$ret = mysqli_query($db, $req);
+}
+
+function	krnl_RemoveArticle(&$db, $id)
+{
+	$req = "DELETE FROM articles WHERE `id` = $id;";
+	$ret = mysqli_query($db, $req);
+}
+
+function	krnl_AddArticle(&$db, $data)
+{
+	$category = mysqli_real_escape_string($db, $data["category"]);
+	$title = mysqli_real_escape_string($db, $data["title"]);
+	$price = mysqli_real_escape_string($db, $data["price"]);
+	$description = mysqli_real_escape_string($db, $data["description"]);
+	$img = mysqli_real_escape_string($db, $data["img"]);
+	if ($title == "")
+		return ;
+	$req = "INSERT INTO `articles` (`category`, `title`, `price`, `description`, `img`) VALUES ('$category', '$title', '$price', '$description', '$img');";
+	$ret = mysqli_query($db, $req);
 }
 
 ?>

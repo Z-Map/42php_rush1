@@ -5,16 +5,16 @@
 		switch ($_POST["submit"])
 		{
 			case "modify_article":
-				krnl_UpdateArticle();
+				krnl_UpdateArticle($db, $_POST);
 				break;
 			case "remove_article":
-
+				krnl_RemoveArticle($db, $_POST['id']);
 				break;
 			case "add_article":
-
+				krnl_AddArticle($db, $_POST);
 				break;
 			case "modify_user":
-				krnl_UpdateArticle();
+
 				break;
 			case "remove_user":
 
@@ -41,10 +41,12 @@
 							<input placeholder="Titre" type="text" name="title" value="<?php echo $item['title']; ?>">
 							<input placeholder="Prix" type="text" name="price" value="<?php echo $item['price']; ?>">
 							<input placeholder="Lien image" type="text" name="img" value="<?php echo $item['img']; ?>">
+							<input placeholder="Description" type="text" name="description" value="<?php echo $item['description']; ?>">
+							<input placeholder="Categorie" type="text" name="category" value="<?php echo $item['category']; ?>">
 							<input type="hidden" name="id" value="<?php echo $item['id']; ?>">
 							<input type="hidden" name="page" value="7">
-							<button type="submit" value="modify_article">Modifier</button>
-							<button type="submit" value="remove_article">Supprimer</button>
+							<button type="submit" name="submit" value="modify_article">Modifier</button>
+							<button type="submit" name="submit" value="remove_article">Supprimer</button>
 						</form>
 					<?php
 				}
@@ -54,8 +56,10 @@
 					<input placeholder="Titre" type="text" name="title">
 					<input placeholder="Prix" type="text" name="price">
 					<input placeholder="Lien image" type="text" name="img">
+					<input placeholder="Description" type="text" name="description">
+					<input placeholder="Categorie" type="text" name="category">
 					<input type="hidden" name="page" value="7">
-					<button type="submit" value="add_article">Ajouter</button>
+					<button type="submit" name="submit" value="add_article">Ajouter</button>
 				</form>
 			</div>
 			<h1>Utilisateurs</h1>
@@ -69,8 +73,8 @@
 							<input placeholder="Password" type="password" name="password" value="">
 							<input type="hidden" name="id" value="<?php echo $user['id']; ?>">
 							<input type="hidden" name="page" value="7">
-							<button type="submit" value="modify_user">Modifier</button>
-							<button type="submit" value="remove_user">Supprimer</button>
+							<button type="submit" name="submit" value="modify_user">Modifier</button>
+							<button type="submit" name="submit" value="remove_user">Supprimer</button>
 						</form>
 					<?php
 				}
@@ -88,8 +92,8 @@
 							<input placeholder="Lien image" type="text" name="img" value="<?php echo $item['img']; ?>">
 							<input type="hidden" name="id" value="<?php echo $item['id']; ?>">
 							<input type="hidden" name="page" value="7">
-							<button type="submit" value="modify_category">Modifier</button>
-							<button type="submit" value="remove_category">Supprimer</button>
+							<button type="submit" name="submit" value="modify_category">Modifier</button>
+							<button type="submit" name="submit" value="remove_category">Supprimer</button>
 						</form>
 					<?php
 				}
@@ -101,7 +105,7 @@
 					<input placeholder="Parent" type="text" name="parent">
 					<input placeholder="Lien image" type="text" name="img">
 					<input type="hidden" name="page" value="7">
-					<button type="submit" value="add_article">Ajouter</button>
+					<button type="submit" name="submit" value="add_article">Ajouter</button>
 				</form>
 			</div>
 		</div>

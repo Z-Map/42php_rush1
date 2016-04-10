@@ -191,9 +191,9 @@ h1
 	margin: 8px 3px;
 }
 
-.admin_form > input[name="img"]
+.admin_form > input[name="description"]
 {
-	width: 400px;
+	width: 200px;
 }
 
 #frame

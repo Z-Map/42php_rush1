@@ -31,7 +31,7 @@
 		$categories = krnl_GetCategories($db);
 		mysqli_close($db);
 		?>
-		<div id="admin_page">
+		<div id="admin_page" class="center">
 			<h1>Articles</h1>
 			<div><?php
 				foreach($articles as $item)

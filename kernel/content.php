@@ -2,5 +2,5 @@
 
 function krnl_GetFormatedContent( $htmlcnt, $cfg, $headcfg )
 {
-	return ($htmlcnt['plain_content']);
+	return ("<div id='frame'>".$htmlcnt['plain_content']."</div>");
 }

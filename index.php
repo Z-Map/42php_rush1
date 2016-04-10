@@ -28,6 +28,7 @@ function getpage()
 	return ($pages[1]);
 }
 
+
 $html_head = krnl_HtmlHeadInit("Chr0nos store");
 $html_config = krnl_HtmlConfigInit();
 $html_content = krnl_HtmlContentInit();

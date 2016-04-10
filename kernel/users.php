@@ -2,7 +2,7 @@
 //renvoi true si $login est dans la liste des utilisateurs, sinon false
 function	krnl_UserCheck(&$db, $login)
 {
-	$login = htmlentities($login);
+	$login = mysqli_real_escape_string($db, $login);
 	$ret = @mysqli_query($db, "SELECT `id` FROM `users` WHERE `login` = '$login' LIMIT 1;");
 	$data = mysqli_fetch_assoc($ret);
 	if (isset($data['id']))
@@ -18,10 +18,10 @@ function	krnl_UserAdd(&$db, $login, $mail, $passwd)
 		return (false);
 	if (krnl_UserCheck($db, $login) !== false)
 		return (false);
-	$login = htmlentities($login);
+	$login = mysqli_real_escape_string($db, $login);
 	$passwd = hash("whirlpool", $passwd);
-	$mail = htmlentities($mail);
-	$req = "INSERT INTO `rush00`.`users` (`id`, `login`, `passwd`, `mail`) VALUES (NULL, '$login', '$pass', '$mail');";
+	$mail = mysqli_real_escape_string($db, $mail);
+	$req = "INSERT INTO `rush00`.`users` (`id`, `login`, `passwd`, `mail`) VALUES (NULL, '$login', '$passwd', '$mail');";
 	return (@mysqli_query($db, $req));
 }
 
@@ -36,9 +36,12 @@ function	krnl_UserDel(&$db, $user_id)
 	return (@mysqli_query($db, $req));
 }
 
+//authentifie l utilisateur $login si son mot de passe correspond a celui de la bdd
+//renvoi true si tout est ok, sinon false,
+//remplis la variable $_SESSION['user'] avec un tableau associatif des champs sql
 function	krnl_UserAuth(&$db, $login, $passwd)
 {
-	$login = htmlentities($login);
+	$login = mysqli_real_escape_string($db, $login);
 	$ret = @mysqli_query($db, "SELECT * FROM `users` WHERE `login` = '$login' LIMIT 1;");
 	$data = mysqli_fetch_assoc($ret);
 	if (!isset($data['id']))

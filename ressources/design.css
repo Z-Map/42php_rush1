@@ -125,6 +125,28 @@ nav#mainMenu li:hover a
 	color: #67665b;
 }
 
+table
+{
+	width: 100%;
+}
+
+.noborder
+{
+	border: 0px;
+}
+
+.article_title
+{
+	text-align: center;
+}
+
+.article_img
+{
+	display: block;
+	text-align: center;
+	max-width: 10vw;
+}
+
 th
 {
 	border-radius: 8px;
@@ -136,8 +158,28 @@ th
 	width: 50%;
 }
 
-.cart td
+.cart tr
 {
 	border-radius: 5px;
 	border: 2px solid black;
+}
+
+h1
+{
+	text-align: center;
+}
+
+#frame
+{
+	background-color: white;
+	margin-left: 12vw;
+	margin-right: 12vw;
+	padding: 15px;
+	border-radius: 0px 0px 12px 12px;
+	border: 1px solid black;
+}
+
+body
+{
+	background-color: grey;
 }

@@ -15,8 +15,8 @@ mysqli_close($db);
 		echo "\t\t\t<td>
 			<form action='./index.php' method='POST'>
 				<span class='article_title'>{$item['title']}</span><br />\n
-				<img class='article_img' style='max-width:200px;' src='{$item['img']}' alt='image' title='Photo' /><br />
-				<span class='article_price'>{$item['price']}</span><br />
+				<img class='article_img' src='{$item['img']}' alt='image' title='Photo' /><br />
+				<span class='article_price'>{$item['price']}&euro;</span><br />
 				<button type='submit' name='order'><i class='fa fa-cart-arrow-down'></i> Add to cart</button>
 				<input type='hidden' name='id' value='{$item['id']}' />
 				<input type='hidden' name='page' value='12' />

@@ -20,7 +20,9 @@ function getpage()
 		5 => "profile.php",
 		6 => "register.php",
 		8 => "category.php",
-		7 => "admin.php");
+		7 => "admin.php",
+		9 => "logout.php",
+		10 => "login.php");
 	if (isset($pages[$pid]))
 		return ($pages[$pid]);
 	return ($pages[1]);

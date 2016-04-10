@@ -9,6 +9,19 @@ function	krnl_GetArticles(&$db)
 	return ($articles);
 }
 
+//retourne la liste des articles dans la categorie de l id $catId
+//null en cas d echec
+function	krnl_ArticlesByCatId(&$db, $catId)
+{
+	$catId = intval($catId);
+	$ret = mysqli_query($db, "SELECT * FROM `articles` WHERE `category` LIKE '%$catId%';");
+	if (!$ret)
+		return (null);
+	$articles = [];
+	while (($data = mysqli_fetch_assoc($ret)))
+		$articles[] = $data;
+	return ($articles);
+}
 
 //retourne l article avec l id $id
 function	krnl_ArticleById(&$db, $id)

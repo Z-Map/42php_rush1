@@ -1,6 +1,9 @@
 <?php
 $db = krnl_MysqlConnect();
-$articles = krnl_GetArticles($db);
+if (!isset($_GET['cat']))
+	$articles = krnl_GetArticles($db);
+else
+	$articles = krnl_ArticlesByCatId($db, $_GET['cat']);
 mysqli_close($db);
 ?>
 <h1>Articles</h1>

@@ -10,7 +10,7 @@ mysqli_close($db);
 	{
 		echo "<tr>
 			<td>
-				<a href='./index.php?page=8&cat={$cat['id']}'>
+				<a href='./index.php?page=3&cat={$cat['id']}'>
 					<img src='{$cat['img']}' alt='{$cat['category']}' title='{$cat['category']}' />
 				</a>
 			</td>

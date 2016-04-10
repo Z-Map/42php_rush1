@@ -17,6 +17,8 @@ if (isset($_SESSION['cart']))
 	if (!count($articles))
 		header("Location: ./index.php?page=13");
 }
+else
+	header("Location: ./index.php?page=13");
 ?>
 
 <h1>Cart content</h1>

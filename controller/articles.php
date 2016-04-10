@@ -17,9 +17,9 @@ mysqli_close($db);
 				<span class='article_title'>{$item['title']}</span><br />\n
 				<img class='article_img' style='max-width:200px;' src='{$item['img']}' alt='image' title='Photo' /><br />
 				<span class='article_price'>{$item['price']}</span><br />
-				<input type='submit' value='Add to cart' name='order' />
+				<button type='submit' name='order'><i class='fa fa-cart-arrow-down'></i> Add to cart</button>
 				<input type='hidden' name='id' value='{$item['id']}' />
-				<input type='hidden' name='page' value='1' />
+				<input type='hidden' name='page' value='12' />
 			</form>
 		</td>\n";
 		if ($p == $max_items_per_lines)

@@ -5,19 +5,28 @@ function	krnl_GetArticles(&$db)
 	$ret = mysqli_query($db, $req);
 	$articles = [];
 	while (($data = mysqli_fetch_assoc($ret)))
-	{
 		$articles[] = $data;
-	}
 	return ($articles);
+}
+
+
+//retourne l article avec l id $id
+function	krnl_ArticleById(&$db, $id)
+{
+	$id = intval($id);
+	$ret = mysqli_query($db, "SELECT * FROM `articles` WHERE `id` = $id;");
+	if ($ret)
+		return (mysqli_fetch_assoc($ret));
+	return (null);
 }
 
 //ajoute l article Id au pannier
 function	krnl_ArticleAddToCart($itemId)
 {
 	if (!isset($_SESSION['cart']))
-		$_SESSION['cart'][$itemId] = 1;
+		$_SESSION['cart'][intval($itemId)] = 1;
 	else
-		$_SESSION['cart'][$itemId]++;
+		$_SESSION['cart'][intval($itemId)]++;
 }
 
 //vide le panier

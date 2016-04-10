@@ -124,3 +124,20 @@ nav#mainMenu li:hover a
 	text-decoration: none;
 	color: #67665b;
 }
+
+th
+{
+	border-radius: 8px;
+	background-color: #909090;
+}
+
+.cart
+{
+	width: 50%;
+}
+
+.cart td
+{
+	border-radius: 5px;
+	border: 2px solid black;
+}

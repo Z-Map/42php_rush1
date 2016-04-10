@@ -22,7 +22,9 @@ function getpage()
 		8 => "category.php",
 		7 => "admin.php",
 		9 => "logout.php",
-		10 => "login.php");
+		10 => "login.php",
+		11 => "cart.php",
+		12 => "addcart.php");
 	if (isset($pages[$pid]))
 		return ($pages[$pid]);
 	return ($pages[1]);

@@ -186,6 +186,11 @@ h1
 	text-align: center;
 }
 
+.catimg
+{
+	max-width: 15vw;
+}
+
 #frame
 {
 	background-color: white;

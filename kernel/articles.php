@@ -14,7 +14,7 @@ function	krnl_GetArticles(&$db)
 function	krnl_ArticlesByCatId(&$db, $catId)
 {
 	$catId = intval($catId);
-	$ret = mysqli_query($db, "SELECT * FROM `articles` WHERE `category` LIKE '%$catId%';");
+	$ret = mysqli_query($db, "SELECT * FROM `articles` WHERE `category` LIKE '%;$catId;%';");
 	if (!$ret)
 		return (null);
 	$articles = [];

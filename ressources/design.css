@@ -141,3 +141,18 @@ th
 	border-radius: 5px;
 	border: 2px solid black;
 }
+
+#admin_page
+{
+	text-align: center;
+}
+
+.admin_form > input
+{
+	margin: 8px 3px;
+}
+
+.admin_form > input[name="img"]
+{
+	width: 400px;
+}

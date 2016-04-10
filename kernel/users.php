@@ -53,4 +53,21 @@ function	krnl_UserAuth(&$db, $login, $passwd)
 	}
 	return (false);
 }
+
+// Renvoi la liste des users
+function	krnl_UserList(&$db)
+{
+	$req = "SELECT * FROM `users`;";
+	$ret = mysqli_query($db, $req);
+	$users = [];
+	while (($data = mysqli_fetch_assoc($ret)))
+		$users[] = $data;
+	return ($users);
+}
+
+function	krnl_IsAdmin()
+{
+	return $_SESSION['user']['login'] === 'admin';
+}
+
 ?>

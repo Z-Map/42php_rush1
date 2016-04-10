@@ -92,6 +92,7 @@ nav#mainMenu ul
 	box-sizing: border-box;
 	background: #0f6534;
 	box-shadow: 0px 5px 30px #45531d inset, 0px -5px 30px #566b16 inset;
+	font-size: 1.1vw;
 }
 
 nav#mainMenu ul li
@@ -149,6 +150,7 @@ table
 
 th
 {
+	font-size: 1vw;
 	border-radius: 8px;
 	background-color: #909090;
 }
@@ -164,7 +166,22 @@ th
 	border: 2px solid black;
 }
 
+.cart tr:hover
+{
+	background-color: #a9deec;
+}
+
+.cart td
+{
+	text-align: center;
+}
+
 h1
+{
+	text-align: center;
+}
+
+.center
 {
 	text-align: center;
 }
@@ -181,5 +198,6 @@ h1
 
 body
 {
+	font-size: 1vw;
 	background-color: grey;
 }
